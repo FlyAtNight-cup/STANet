@@ -59,8 +59,8 @@ class CDF0Model(BaseModel):
         if self.isTrain:
             self.L_s = self.L.float()
             self.L_s = F.interpolate(self.L_s, size=torch.Size([self.A.shape[2]//self.ds, self.A.shape[3]//self.ds]),mode='nearest')
-            self.L_s[self.L_s == 1] = -1  # change
-            self.L_s[self.L_s == 0] = 1  # no change
+            # self.L_s[self.L_s == 1] = -1  # change
+            # self.L_s[self.L_s == 0] = 1  # no change
 
 
     def test(self, val=False):

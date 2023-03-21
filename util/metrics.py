@@ -118,6 +118,7 @@ class RunningMetrics(object):
         :return:
         """
         for lt, lp in zip(label_gts, label_preds):
+            lp = np.argmax(lp, axis=0)
             self.confusion_matrix += self.__fast_hist(lt.flatten(), lp.flatten())
 
     def reset(self):
